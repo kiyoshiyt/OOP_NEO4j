@@ -1,15 +1,15 @@
-package matchNode;
+package CreateRelationship;
 /**
  * Tao quan he giua cac thuc the
  * @author tt
  *
  */
-public abstract class MatchNode {
+public abstract class CreateRelationship {
 	
 	private int maxNode1;//so luong node toi da cua tap thuc the 1
 	private int maxNode2;//so luong node toi da cua tap thuc the 2
 	
-	public MatchNode(int maxNode1, int maxNode2){
+	public CreateRelationship(int maxNode1, int maxNode2){
 		this.maxNode1=maxNode1;
 		this.maxNode2= maxNode2;
 	}
