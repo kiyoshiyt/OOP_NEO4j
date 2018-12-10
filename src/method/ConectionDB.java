@@ -18,11 +18,12 @@ import org.neo4j.driver.v1.TransactionWork;
 public class ConectionDB {
 	
 	private final Driver driver;
-
+	// ket noi db voi uri  username , password 
     public ConectionDB( String uri, String user, String password )
     {
         driver = GraphDatabase.driver( uri, AuthTokens.basic( user, password ) );
     }
+    // ket noi mac dinh
     public ConectionDB()
     {
         driver = GraphDatabase.driver( "bolt://localhost:11001", AuthTokens.basic( "akiko", "06081997" ) );
@@ -33,6 +34,7 @@ public class ConectionDB {
         driver.close();
     }
     
+    // thuc thi cau lenh
     public StatementResult execute(String s){
     	
     	StatementResult rs= null;

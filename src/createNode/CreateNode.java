@@ -23,11 +23,11 @@ public abstract class CreateNode {
 		this.maxNode=maxNode;
 	}
 	
-	// danh sÃ¡ch cÃ¡c trang bÃ¡o
+	// danh sach cac trang trich rut
 	protected String[] listLinks = {"https://dulich.vnexpress.net/","https://dantri.com.vn/", "vnexpress.net", "tuoitre.vn", "http://vietnamnet.vn/",
             "https://www.vietnamplus.vn/", "https://vtc.vn/", "https://www.24h.com.vn/", "http://kenh14.vn/"
 	};
-	// Ä‘á»�c tá»« file
+	// doc file vao list
 	public  void readFile(String file,List<String> list){
 
 		try {BufferedReader in = new BufferedReader(
