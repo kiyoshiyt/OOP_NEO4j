@@ -52,7 +52,7 @@ public class CreatePerson extends CreateNode {
 			out.write("");
 			
 			
-			out.append("id"+",");
+			out.append("idNode"+",");
 			out.append("name"+",");
 			out.append("man"+",");
 			out.append("age"+",");
@@ -157,7 +157,7 @@ public class CreatePerson extends CreateNode {
 		// some code.....
 		
 		CreatePerson cp =new CreatePerson(4000);
-		cp.createToCSV("src/data/CreatePerson.csv");
+		cp.createToCSV("src/database/CreatePerson.csv");
 		System.out.println("Sinh thanh cong");
 		
 		//

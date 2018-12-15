@@ -6,8 +6,9 @@ package CreateRelationship;
  */
 public abstract class CreateRelationship {
 	
-	private int maxNode1;//so luong node toi da cua tap thuc the 1
-	private int maxNode2;//so luong node toi da cua tap thuc the 2
+	protected int maxNode1;//so luong node toi da cua tap thuc the 1
+	protected int maxNode2;//so luong node toi da cua tap thuc the 2
+
 	
 	public CreateRelationship(int maxNode1, int maxNode2){
 		this.maxNode1=maxNode1;
