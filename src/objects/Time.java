@@ -3,15 +3,15 @@ package objects;
 import java.util.Date;
 
 public class Time {
-	private String id ;
+	private int idNode ;
 	private String name;
 	private String link;
 	private String description;
 	private Date timeGet ;
 	
-	public Time(String id, String name,String description, String link, Date timeGet) {
+	public Time(int idNode, String name,String description, String link, Date timeGet) {
 		super();
-		this.id = id;
+		this.idNode = idNode;
 		this.name = name;
 		this.description = description;
 		this.link = link;
@@ -24,11 +24,11 @@ public class Time {
 	public void setTimeGet(Date timeGet) {
 		this.timeGet = timeGet;
 	}
-	public String getId() {
-		return id;
+	public int getIdNode() {
+		return idNode;
 	}
-	public void setId(String id) {
-		this.id = id;
+	public void setId(int idNode) {
+		this.idNode = idNode;
 	}
 	public String getName() {
 		return name;

@@ -7,16 +7,16 @@ import java.util.Date;
  *
  */
 public class Organization {
-	String id;
+	int id;
 	String name;
 	String active;
 	String link;
 	Date timeGet;
 	String description;
-	public String getId() {
+	public int getId() {
 		return id;
 	}
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public String getName() {
@@ -50,7 +50,7 @@ public class Organization {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public Organization(String id, String name, String active, String link, Date timeGet,
+	public Organization(int id, String name, String active, String link, Date timeGet,
 			String description) {
 		super();
 		this.id = id;

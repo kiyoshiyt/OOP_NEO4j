@@ -55,5 +55,8 @@ public class Location {
 		this.link = link;
 		this.timeget = timeget;
 	}
+	public Location(){
+		
+	};
 
 }

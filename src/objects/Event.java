@@ -3,25 +3,25 @@ package objects;
 import java.util.Date;
 
 public class Event {
-	private String id;
+	private int idNode;
 	private String name;
 	private String description;
 	private String link;
 	private Date timeGet;
 	
-	public Event(String id, String name, String description, String link, Date timeGet) {
+	public Event(int idNode, String name, String description, String link, Date timeGet) {
 		super();
-		this.id = id;
+		this.idNode = idNode;
 		this.name = name;
 		this.description = description;
 		this.link = link;
 		this.timeGet = timeGet;
 	}
-	public String getId() {
-		return id;
+	public int getIdNode() {
+		return idNode;
 	}
-	public void setId(String id) {
-		this.id = id;
+	public void setIdNode(int idNode) {
+		this.idNode = idNode;
 	}
 	public String getName() {
 		return name;

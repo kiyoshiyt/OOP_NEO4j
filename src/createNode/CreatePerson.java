@@ -156,8 +156,8 @@ public class CreatePerson extends CreateNode {
 		long begin = Calendar.getInstance().getTimeInMillis();
 		// some code.....
 		
-		CreatePerson cp =new CreatePerson(4000);
-		cp.createToCSV("src/database/CreatePerson.csv");
+		CreatePerson cp =new CreatePerson(1000000);
+		cp.createToCSV("src/database/Person.csv");
 		System.out.println("Sinh thanh cong");
 		
 		//
