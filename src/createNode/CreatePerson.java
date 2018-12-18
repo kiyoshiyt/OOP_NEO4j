@@ -52,7 +52,7 @@ public class CreatePerson extends CreateNode {
 			out.write("");
 			
 			
-			out.append("idNode"+",");
+			out.append("personId:ID(Person)"+",");
 			out.append("name"+",");
 			out.append("man"+",");
 			out.append("age"+",");
@@ -155,8 +155,9 @@ public class CreatePerson extends CreateNode {
 		
 		long begin = Calendar.getInstance().getTimeInMillis();
 		// some code.....
-		
-		CreatePerson cp =new CreatePerson(1000000);
+
+		CreatePerson cp =new CreatePerson(10000);
+
 		cp.createToCSV("src/database/Person.csv");
 		System.out.println("Sinh thanh cong");
 		

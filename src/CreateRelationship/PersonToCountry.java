@@ -24,15 +24,17 @@ public class PersonToCountry extends CreateRelationship {
 		try {
 			out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(fileDir), "UTF-8"));
 			out.write("");
-			out.append("stratNode,endNode");
+			out.append(":START_ID(Person),year,:END_ID(Country)");
 			out.append("\r\n");
 			out.flush();
 			Random rd = new Random();
 			for (int i = 0; i < numRelationship; i++) {
 				int startNode= 100000000+rd.nextInt(maxNode1);
+				String nam =String.valueOf(1900+rd.nextInt(118));
 				int endNode =500000000+rd.nextInt(maxNode2);
 				
 				out.append(String.valueOf(startNode)+",");
+				out.append(nam+",");
 				out.append(String.valueOf(endNode));
 				out.append("\r\n");
 				out.flush();
