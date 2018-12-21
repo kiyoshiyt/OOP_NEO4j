@@ -2,4 +2,5 @@ eclipse.preferences.version=1
 encoding//src/createNode/CreateNode.java=UTF-8
 encoding//src/createNode/CreateOrganization.java=UTF-8
 encoding//src/createNode/CreatePerson.java=UTF-8
+encoding//src/data/OrganizationTest.txt=UTF-8
 encoding//src/objects/Country.java=UTF-8

@@ -12,7 +12,7 @@ public class Country {
 //    private String countryCode;
     private String countryName;
 //    private int population;
-    private int idNode;
+    private int isoNumeric;
 //    private double north;
 //    private double south;
 //    private double east;
@@ -27,7 +27,7 @@ public class Country {
 
 
     //constructor
-    public Country( String countryName, int isoNumeric,
+    public Country( String countryName,
                    String capital, String continentName, String link, Date timeGet) {
 //        this.setCountryCode(countryCode);
         this.setCountryName(countryName);
@@ -53,11 +53,11 @@ public class Country {
 
 
     public int getIsoNumeric() {
-        return idNode;
+        return isoNumeric;
     }
 
     public void setIsoNumeric(int isoNumeric) {
-        this.idNode = isoNumeric;
+        this.isoNumeric = isoNumeric;
     }
 
 

@@ -14,63 +14,60 @@ import java.util.Random;
 
 public class CreateCountry extends CreateNode {
 
-    public CreateCountry(int maxNode) {
-        super(maxNode);
-    }
+	public CreateCountry(int maxNode) {
+		super(maxNode);
+	}
 
-    public JSONArray readFile(String file) {
-        String jsonText = null;
-        try {
-            jsonText = new String(Files.readAllBytes(Paths.get(file)), Charset.forName("UTF-8"));
-            return new JSONObject(jsonText).getJSONObject("countries").getJSONArray("country");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }catch (JSONException e) {
-			// TODO Auto-generated catch block
+	public JSONArray readFile(String file) throws JSONException {
+		String jsonText = null;
+		try {
+			jsonText = new String(Files.readAllBytes(Paths.get(file)), Charset.forName("UTF-8"));
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		return null;
-    }
+		return new JSONObject(jsonText).getJSONObject("countries").getJSONArray("country");
+	}
 
+	@Override
+	public void createToCSV(String fileName) {
+		try {
+			Writer out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(fileName), "UTF-8"));
+			out.write("countryId:ID(Country),name,capital,continent,link,timeGet\r\n");
 
+			JSONArray jsonArray = readFile("src/data/countries.json.txt");
+			for (int i = 0; i < maxNode; i++) {
+				JSONObject json;
+				if (i > 249) {
+					json = jsonArray.getJSONObject(new Random().nextInt(250));
+				} else
+					json = jsonArray.getJSONObject(i);
 
-    @Override
-    public void createToCSV(String fileName) {
-        try {
-            Writer out = new FileWriter(fileName);
-            out.write("idNode,name,capital,continent,link,timeGet\n");
+				Country country = new Country(json.getString("countryName"), json.getString("capital"),
+						json.getString("continentName"), listLinks[new Random().nextInt(listLinks.length)], new Date());
 
-            JSONArray jsonArray = readFile("src/data/Countries.json.txt");
-            for (int i = 0; i < jsonArray.length(); i++) {
-                JSONObject json = jsonArray.getJSONObject(i);
+				out.write((i + 500000000) + ",");
+				out.write(country.getCountryName() + ",");
+				// out.write(country.getCountryCode() + ",");
+				out.write(country.getCapital() + ",");
+				out.write(country.getContinentName() + ",");
+				// out.write(country.getLanguages() + ",");
+				// out.write(String.valueOf(country.getArea()) + ",");
+				// out.write(String.valueOf(country.getPopulation()) + ",");
+				out.write(country.getLink() + ",");
+				out.write(String.valueOf(country.getTimeGet()) + "");
+				out.write("\r\n");
+			}
 
-                Country country = new Country(json.getString("countryName"),
-                        i, json.getString("capital"), json.getString("continentName"),
-                        listLinks[new Random().nextInt(listLinks.length)], new Date());
+			if (out != null)
+				out.close();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		System.out.println("Parse xong");
+	}
 
-                out.write((i + 500000000) + ",");
-                out.write(country.getCountryName() + ",");
-//                out.write(country.getCountryCode() + ",");
-                out.write(country.getCapital() + ",");
-                out.write(country.getContinentName() + ",");
-//                out.write(country.getLanguages() + ",");
-//                out.write(String.valueOf(country.getArea()) + ",");
-//                out.write(String.valueOf(country.getPopulation()) + ",");
-                out.write(country.getLink() + ",");
-                out.write(String.valueOf(country.getTimeGet()) + ",");
-                out.write("\n");
-            }
-
-            if (out != null) out.close();
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-        System.out.println("Parse xong");
-    }
-
-    public static void main(String[] args) {
-        CreateCountry p = new CreateCountry(250);
-        p.createToCSV("src/database/Countries.csv");
-    }
+	public static void main(String[] args) {
+		CreateCountry p = new CreateCountry(50);
+		p.createToCSV("Countries.csv");
+	}
 }
-

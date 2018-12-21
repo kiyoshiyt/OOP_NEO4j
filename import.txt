@@ -1,0 +1,3 @@
+using tool import neo4j
+
+bin\neo4j-import --into data\databases\graph.db  --id-type string  --nodes:Person import\Person.csv --nodes:Organization import\Organization.csv --nodes:Country import\Country.csv --nodes:Event import\Event.csv --nodes:Location import\Location.csv --nodes:Time import\Time.csv --relationships:belong import\belong.csv --relationships:end import\end.csv --relationships:happen import\happen.csv --relationships:located import\located.csv --relationships:opening import\opening.csv --relationships:organize import\organize.csv --relationships:participation import\participation.csv --relationships:start import\start.csv --relationships:visited import\visited.csv 

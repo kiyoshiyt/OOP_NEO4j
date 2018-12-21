@@ -1,4 +1,5 @@
 package method;
+
 import static org.neo4j.driver.v1.Values.parameters;
 
 import org.neo4j.driver.v1.AuthTokens;
@@ -11,53 +12,57 @@ import org.neo4j.driver.v1.TransactionWork;
 
 /**
  * Kết nối cơ sở dữ liệu
+ * 
  * @author tt
  *
  */
 
 public class ConectionDB {
-	
+
 	private final Driver driver;
-	// ket noi db voi uri  username , password 
-    public ConectionDB( String uri, String user, String password )
-    {
-        driver = GraphDatabase.driver( uri, AuthTokens.basic( user, password ) );
-    }
-    // ket noi mac dinh
-    public ConectionDB()
-    {
-        driver = GraphDatabase.driver( "bolt://localhost:11001", AuthTokens.basic( "akiko", "06081997" ) );
-    }
-    
-    public void close() throws Exception
-    {
-        driver.close();
-    }
-    
-    // thuc thi cau lenh
-    public StatementResult execute(String s){
-    	
-    	StatementResult rs= null;
-    	try ( Session session = driver.session() ){
-    		rs=session.run(s);
-    	}
-    	
-    	return rs;
-    }
-	
-	void getConection(){	
-		
-	};
-	void getData(){
-		
-	};
-	void setData(){
-		
-	};
-	void updateData(){
-		
+
+	// ket noi db voi uri username , password
+	public ConectionDB(String uri, String user, String password) {
+		driver = GraphDatabase.driver(uri, AuthTokens.basic(user, password));
 	}
-	void removeData(){
+
+	// ket noi mac dinh
+	public ConectionDB() {
+		driver = GraphDatabase.driver("bolt://localhost:11001", AuthTokens.basic("akiko", "06081997"));
+	}
+
+	public void close() throws Exception {
+		driver.close();
+	}
+
+	// thuc thi cau lenh
+	public StatementResult execute(String s) {
+
+		StatementResult rs = null;
+		try (Session session = driver.session()) {
+			rs = session.run(s);
+		}
+
+		return rs;
+	}
+
+	void getConection() {
+
+	};
+
+	void getData() {
+
+	};
+
+	void setData() {
+
+	};
+
+	void updateData() {
+
+	}
+
+	void removeData() {
 		ConectionDB cn = new ConectionDB();
 		cn.execute("match (n) detach delete n");
 		try {
@@ -67,9 +72,11 @@ public class ConectionDB {
 			e.printStackTrace();
 		}
 	};
+
 	public static void main(String[] args) {
-		ConectionDB cn = new ConectionDB("bolt://localhost:11001","akiko","27051997");
-		//cn.execute("CREATE (ee:Person { name: 'aa', from: 'Việt Nam', klout: 99 })");
+		ConectionDB cn = new ConectionDB("bolt://localhost:11001", "akiko", "27051997");
+		// cn.execute("CREATE (ee:Person { name: 'aa', from: 'Việt Nam',
+		// klout: 99 })");
 		cn.removeData();
 		try {
 			cn.close();
@@ -77,6 +84,6 @@ public class ConectionDB {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 	}
 }

@@ -33,10 +33,10 @@ public class matchEventTime extends CreateRelationship {
     @Override
     public void CreateRelationship(int tong) {
         try {
-            happen.write("startNode,endNode\n");
-            organize.write("startNode,endNode\n");
-            start.write("startNode,endNode\n");
-            end.write("startNode,endNode\n");
+            happen.write(":START_ID(Event),:END_ID(Time)\n");
+            organize.write(":START_ID(Event),:END_ID(Time)\n");
+            start.write(":START_ID(Event),:END_ID(Time)\n");
+            end.write(":START_ID(Event),:END_ID(Time)\n");
             for (int i = 0; i < tong; i++) {
                 RandomReferences().write((new Random().nextInt(maxNode1) + 300000000) + "," +
                         (new Random().nextInt(maxNode2) + 400000000) + "\n");

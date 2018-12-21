@@ -22,7 +22,7 @@ public class MatchPersonOrganization extends CreateRelationship {
 		try {
 			out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(fileDir), "UTF-8"));
 			out.write("");
-			out.write("startNode,endNode");
+			out.append(":START_ID(Person), :END_ID(Organization)");
 			out.append("\r\n");
 			out.flush();
 			Random rand = new Random();

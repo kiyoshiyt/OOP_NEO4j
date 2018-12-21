@@ -1,0 +1,3 @@
+countryId:ID(Country),name,capital,continent,link,timeGet
+500000000,Afghanistan,Kabul,Asia,https://dantri.com.vn/,Fri Dec 21 17:19:12 ICT 2018
+500000001,Albania,Tirana,Europe,tuoitre.vn,Fri Dec 21 17:19:12 ICT 2018

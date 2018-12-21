@@ -21,8 +21,9 @@ public class CreateTime extends CreateNode {
 	
 	ArrayList<Time> listTime = new ArrayList<>();
  	public CreateTime(int maxNode) {
-		super(365);
-		
+		super(maxNode);
+		this.maxNode=maxNode;
+		if (maxNode>365) this.maxNode=365;
 	}
 
 	@Override
@@ -41,7 +42,7 @@ public class CreateTime extends CreateNode {
 				String s[] = str.split("\\|");
 				String name = s[0];
 				String description = s[1];
-				int id = 500000000 + i;
+				int id = 400000000 + i;
 				time = new Time(id, name, description, listLinks[rand.nextInt(listLinks.length)], timeGet);
 				listTime.add(time);
 				i++;
@@ -49,14 +50,16 @@ public class CreateTime extends CreateNode {
 
 			out.write("");
 
-			out.append("idNode" + ",");
+			out.append("timeId:ID(Time)" + ",");
 			out.append("name" + ",");
 			out.append("description" + ",");
 			out.append("link" + ",");
 			out.append("timeGet" + "");
 			out.append("\r\n");
-
-			for (Time e : listTime) {
+			Time e;
+			for (int j=0;j<maxNode;j++) {
+				e =listTime.get(j);
+				
 				out.append(e.getIdNode() + ",");
 				out.append(e.getName() + ",");
 				out.append(e.getDescription() + ",");

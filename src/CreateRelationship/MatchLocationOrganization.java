@@ -25,7 +25,7 @@ public class MatchLocationOrganization extends CreateRelationship {
 		try {
 			out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(fileDir), "UTF-8"));
 			out.write("");
-			out.append("stratNode,endNode");
+			out.append(":START_ID(Organization),:END_ID(Location)");
 			out.append("\r\n");
 			out.flush();
 			Random rd = new Random();

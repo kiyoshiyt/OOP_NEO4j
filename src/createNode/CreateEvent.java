@@ -20,8 +20,10 @@ public class CreateEvent extends CreateNode {
 	ArrayList<Event> listEvent = new ArrayList<>();
 
 	public CreateEvent(int maxNode) {
-		super(50);
-
+		super(maxNode);
+		this.maxNode=maxNode;
+		if(maxNode>50) this.maxNode=50;
+		
 	}
 
 	@Override
@@ -48,18 +50,21 @@ public class CreateEvent extends CreateNode {
 
 			out.write("");
 
-			out.append("idNode" + ",");
-			out.append("name" + ",");
-			out.append("description" + ",");
-			out.append("link" + ",");
-			out.append("timeGet" + "");
+			out.append("eventId:ID(Event)"+",");
+			out.append("name"+",");
+			out.append("description"+",");
+			out.append("link"+",");
+			out.append("timeGet"+"");
 			out.append("\r\n");
+			
+			Event e;
 
-			for (Event e : listEvent) {
-				out.append(e.getIdNode() + ",");
-				out.append(e.getName() + ",");
-				out.append(e.getDescription() + ",");
-				out.append(e.getLink() + ",");
+			for (int j=0;j<maxNode;j++) {
+				e=listEvent.get(j);
+				out.append(e.getIdNode()+",");
+				out.append(e.getName()+",");
+				out.append(e.getDescription()+",");
+				out.append(e.getLink()+",");
 				out.append(e.getTimeGet().toString());
 				out.append("\r\n");
 				out.flush();

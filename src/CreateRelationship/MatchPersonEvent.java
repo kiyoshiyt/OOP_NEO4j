@@ -33,8 +33,8 @@ public class MatchPersonEvent extends CreateRelationship {
     @Override
     public void CreateRelationship(int tong) {
         try {
-        	participation.write("startNode,endNode\n");
-        	opening.write("startNode,endNode\n");
+        	participation.write(":START_ID(Person),:END_ID(Event)\n");
+        	opening.write(":START_ID(Person),:END_ID(Event)\n");
            
             for (int i = 0; i < tong; i++) {
                 RandomReferences().write((new Random().nextInt(maxNode1) + 100000000) + "," +

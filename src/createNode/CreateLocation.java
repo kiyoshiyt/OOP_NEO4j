@@ -42,7 +42,7 @@ public class CreateLocation extends CreateNode {
 			out.write("");
 			
 			
-			out.append("id"+",");
+			out.append("locationId:ID(Location)"+",");
 			out.append("name"+",");
 			out.append("country"+",");
 			out.append("link"+",");
